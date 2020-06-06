@@ -17,7 +17,6 @@ public class Radio {
         currentRadioStation++;
 
     }
-
     public void switchingTheRadioStationToThePreviousOne(){
         if (currentRadioStation <= minRadioStation) {
             currentRadioStation = maxRadioStation;
@@ -26,34 +25,85 @@ public class Radio {
         currentRadioStation--;
     }
 
-    public void increaseSoundVolume(){
-        if (currentSoundVolume >= maxSoundVolume){
+    public void increaseSoundVolume() {
+        if (currentSoundVolume == maxSoundVolume) {
             return;
         }
         currentSoundVolume++;
     }
 
-    public void decreaseSoundVolume(){
-        if (currentSoundVolume <= minSoundVolume){
+    public void decreaseSoundVolume() {
+        if (currentSoundVolume == minSoundVolume) {
             return;
         }
         currentSoundVolume--;
     }
 
-    public void setCurrentRadioStation(int currentRadioStation) {
-        this.currentRadioStation = currentRadioStation;
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
-    public void setCurrentSoundVolume(int currentSoundVolume) {
-        this.currentSoundVolume = currentSoundVolume;
+    public void setCurrentRadioStation(int currentRadioStation) {
+        if (currentRadioStation > maxRadioStation){
+            return;
+        }
+        if (currentRadioStation < minRadioStation){
+            return;
+        }
+        this.currentRadioStation = currentRadioStation;
+    }
+
+    public int getMaxRadioStation() {
+        return maxRadioStation;
+    }
+
+    public void setMaxRadioStation(int maxRadioStation) {
+        this.maxRadioStation = maxRadioStation;
+    }
+
+    public int getMinRadioStation() {
+        return minRadioStation;
+    }
+
+    public void setMinRadioStation(int minRadioStation) {
+        this.minRadioStation = minRadioStation;
     }
 
     public int getCurrentSoundVolume() {
         return currentSoundVolume;
+    }
+
+    public void setCurrentSoundVolume(int currentSoundVolume) {
+        if (currentSoundVolume > maxSoundVolume) {
+            return;
+        }
+        if (currentSoundVolume < minSoundVolume) {
+            return;
+        }
+        this.currentSoundVolume = currentSoundVolume;
+    }
+
+    public int getMaxSoundVolume() {
+        return maxSoundVolume;
+    }
+
+    public void setMaxSoundVolume(int maxSoundVolume) {
+        this.maxSoundVolume = maxSoundVolume;
+    }
+
+    public int getMinSoundVolume() {
+        return minSoundVolume;
+    }
+
+    public void setMinSoundVolume(int minSoundVolume) {
+        this.minSoundVolume = minSoundVolume;
     }
 }
